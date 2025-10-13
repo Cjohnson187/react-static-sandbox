@@ -1,73 +1,53 @@
-# React + TypeScript + Vite
+# React Portfolio Sandbox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository hosts a simple, single-file React application designed as a project portfolio sandbox. It demonstrates modern React functional components, `useState` hook usage, and a custom **hash-based routing** system to manage navigation between different "projects" without needing an external router library.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+* **Single-File Application:** All components, logic, and styling are contained within `src/App.tsx`, following the single-file mandate for simplified deployment and focused development.
+* **Custom Hash Routing:** Uses native browser `window.location.hash` and the `hashchange` event listener to create client-side routing, allowing navigation between `/#counter` and `/#todo`.
+* **Fully Responsive UI:** Styled using **Tailwind CSS** utility classes for a modern, dark-themed, and adaptive user experience across all devices.
+* **Project 1: React Counter App:** A foundational example demonstrating the use of `useState` for simple numeric state management.
+* **Project 2: Simple To-Do List:** An interactive list that uses local React state to manage adding, toggling, and deleting tasks. *Note: Data is not persistent and resets on page refresh.*
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **React:** Functional components and Hooks (`useState`, `useEffect`, `useCallback`, `useMemo`).
+* **TypeScript:** Provides strong typing for components, props, and state (`TodoItem`, `PageRoute`).
+* **Tailwind CSS:** Used via CDN for rapid and responsive styling.
+* **Lucide React:** Used for sharp, lightweight icons.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📂 Project Structure Overview
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The entire application is self-contained within `src/App.tsx`.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1.  **Type Definitions:** Defines custom types like `PageRoute`, `Project`, and `TodoItem` for strong typing.
+2.  **`PROJECTS` Array:** A constant array defining all available projects, linking their IDs, names, icons, and component functions.
+3.  **Routing Utilities:** Functions (`getRouteFromHash`, `MapsTo`) manage reading and writing to the URL hash.
+4.  **Project Components:** Individual components (`CounterProject`, `TodoListProject`) demonstrating specific React features.
+5.  **`HomePage` Component:** Displays the index of all available projects.
+6.  **`App` Component:** The main entry point that manages the global `currentPage` state and uses the `componentsMap` to conditionally render the active project component based on the URL hash.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ⚙️ How to Run
+
+Since this is a single, self-contained TypeScript/React file, you can run it directly in any environment configured for React development (like a sandbox or a local create-react-app project).
+
+1.  Ensure you have a React environment set up.
+2.  Place the code into `src/App.tsx`.
+3.  Run the development server (`npm start` or similar).
+
+The application will start on the home page (`/`), where you can click cards to navigate to projects like:
+
+* `http://localhost:3000/#counter`
+* `http://localhost:3000/#todo`
+```eof
+
+This is the exact Markdown content for your project's documentation. What's the next task for your React project?
