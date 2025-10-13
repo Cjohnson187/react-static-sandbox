@@ -62,7 +62,7 @@ const ComplexityChart: React.FC = () => {
 
           {/* Labels */}
           <text x="-15" y="10" className="text-sm fill-gray-400">Time</text>
-          <text x={INNER_WIDTH - 20} y={INNER_HEIGHT + 20} className="text-sm fill-gray-400">N (Input Size)</text>
+          <text x={INNER_WIDTH - 70} y={INNER_HEIGHT + 20} className="text-sm fill-gray-400">N (Input Size)</text>
 
           {/* Curves */}
           {curves.map((curve) => (
