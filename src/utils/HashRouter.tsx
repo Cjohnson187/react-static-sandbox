@@ -1,6 +1,6 @@
-import { Lightbulb, CheckSquare} from 'lucide-react';
+import { Lightbulb, ChartLine} from 'lucide-react';
 import { CounterProject } from '../projects/Counter';
-import { TodoListProject } from '../projects/ToDo';
+import bigO from '../projects/bigO/BigO';
 // --- TYPE DEFINITIONS ---
 import type { PageRoute } from '../types/PageRoute'
 import type { Project } from '../types/Project'
@@ -9,18 +9,18 @@ import type { Project } from '../types/Project'
 // Define ALL projects and their corresponding components here
 export const PROJECTS: Project[] = [
     { 
+        id: 'bigo', 
+        name: 'Big O Complexity Cheatsheet', 
+        description: 'Big O Complexity reference for common data structures and algorithms.', 
+        icon: ChartLine,
+        component: bigO
+    },
+    { 
         id: 'counter', 
         name: 'React Counter App', 
         description: 'A classic demonstration of useState hook for managing numeric state.', 
         icon: Lightbulb,
         component: CounterProject
-    },
-    { 
-        id: 'todo', 
-        name: 'Interactive To-Do List', 
-        description: 'Practice managing arrays of objects and handling form inputs.', 
-        icon: CheckSquare,
-        component: TodoListProject
     },
     // Add more projects here
 ];
