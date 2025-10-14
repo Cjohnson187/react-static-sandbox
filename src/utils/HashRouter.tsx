@@ -1,5 +1,6 @@
-import { Lightbulb, ChartLine} from 'lucide-react';
+import { Lightbulb, ChartLine, Axe} from 'lucide-react';
 import { CounterProject } from '../projects/Counter';
+import CarpentryShowcase from '../projects/carpentry/demo1';
 import bigO from '../projects/bigO/BigO';
 // --- TYPE DEFINITIONS ---
 import type { PageRoute } from '../types/PageRoute'
@@ -21,6 +22,13 @@ export const PROJECTS: Project[] = [
         description: 'A classic demonstration of useState hook for managing numeric state.', 
         icon: Lightbulb,
         component: CounterProject
+    },
+    { 
+        id: 'carpentry-demo1', 
+        name: 'carpentry-demo1', 
+        description: 'First option for carpentry demo page.', 
+        icon: Axe,
+        component: CarpentryShowcase
     },
     // Add more projects here
 ];
