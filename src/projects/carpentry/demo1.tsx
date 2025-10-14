@@ -3,12 +3,12 @@ import { ShoppingCart, Menu, X, DollarSign, Rss } from 'lucide-react';
 
 // --- Mock Data ---
 const MOCK_PRODUCTS = [
-  { id: 1, name: "Signature Walnut Dining Table", description: "Minimalist slab design, seats 8. Our centerpiece.", price: 4200, imageUrl: "https://placehold.co/600x400/4E342E/FBE3B8?text=Walnut+Table" },
-  { id: 2, name: "Oak Office Desk", description: "Integrated cable management, solid oak.", price: 2850, imageUrl: "https://placehold.co/600x400/4F3A2C/D4B7A7?text=Oak+Desk" },
-  { id: 3, name: "Mahogany Rocking Chair", description: "Ergonomically shaped, hand-sanded finish.", price: 1150, imageUrl: "https://placehold.co/600x400/2A1916/D4B7A7?text=Rocking+Chair" },
-  { id: 4, name: "End Grain Cutting Board", description: "Maple and cherry inlay, oil-finished.", price: 180, imageUrl: "https://placehold.co/600x400/5C4538/D4B7A7?text=Cutting+Board" },
-  { id: 5, name: "Custom Bookshelves", description: "Modular design, deep blue finish.", price: 3500, imageUrl: "https://placehold.co/600x400/404E5C/D4B7A7?text=Bookshelves" },
-  { id: 6, name: "Epoxy River Coffee Table", description: "Live edge cedar and sapphire epoxy.", price: 1900, imageUrl: "https://placehold.co/600x400/25333F/D4B7A7?text=River+Table" },
+  { id: 1, name: "Signature Walnut Dining Table", description: "Minimalist slab design, seats 8. Our centerpiece.", price: 4200, imageUrl: "/assets/carpentry/costa-live-h_BP6DlGOvo-unsplash.webp" },
+  { id: 2, name: "Oak Office Desk", description: "Integrated cable management, solid oak.", price: 2850, imageUrl: "/assets/carpentry/thuan-tran-Wmo8hpd9XhI-unsplash.webp" },
+  { id: 3, name: "Mahogany Chair", description: "Ergonomically shaped, hand-sanded finish.", price: 1150, imageUrl: "/assets/carpentry/kelly-miller-BL6XQLZeXpg-unsplash.webp" },
+  { id: 4, name: "End Grain Cutting Board", description: "Maple and cherry inlay, oil-finished.", price: 180, imageUrl: "/assets/carpentry/sergey-kotenev-M8COBu-_Va8-unsplash.webp" },
+  { id: 5, name: "Custom Bookshelves", description: "Modular design, deep blue finish.", price: 3500, imageUrl: "/assets/carpentry/pawel-czerwinski-BAiRfbt1HRE-unsplash.webp" },
+  { id: 6, name: "Epoxy River Coffee Table", description: "Live edge cedar and sapphire epoxy.", price: 1900, imageUrl: "/assets/carpentry/Coffeetableb.webp" },
 ];
 
 // --- Sub-Components ---
@@ -29,7 +29,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <a href="#" className="text-2xl font-serif font-bold text-amber-500">
+            <a href="#carpentry-demo1" onClick={(event) => event.preventDefault()} className="text-2xl font-serif font-bold text-amber-500">
               The Artisan's Edge
             </a>
           </div>
@@ -37,7 +37,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navLinks.map(link => (
-              <a key={link.name} href={link.href} className="text-gray-300 hover:text-amber-400 transition duration-150 font-medium">
+              <a key={link.name} href={link.href} onClick={(event) => event.preventDefault()} className="text-gray-300 hover:text-amber-400 transition duration-150 font-medium">
                 {link.name}
               </a>
             ))}
@@ -66,7 +66,7 @@ const Header = () => {
         <div className="md:hidden bg-gray-800 border-t border-gray-700">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-start">
             {navLinks.map(link => (
-              <a key={link.name} href={link.href} className="block w-full p-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">
+              <a key={link.name} href={link.href} onClick={(event) => event.preventDefault()} className="block w-full p-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white rounded-md">
                 {link.name}
               </a>
             ))}
@@ -82,7 +82,7 @@ const HeroSection = () => (
     className="relative h-[60vh] md:h-[80vh] bg-cover bg-center flex items-center justify-center shadow-2xl"
     // Updated background URL to a more realistic walnut slab image placeholder
     style={{
-      backgroundImage: `url("https://placehold.co/1920x800/3e2723/FBE3B8?text=Signature+Walnut+Slab+Table")`
+      backgroundImage: `url("/assets/carpentry/ricky-kharawala-4dVDBMAho8c-unsplash.webp")`
     }}
   >
     {/* Dark Overlay for Text Visibility */}
@@ -97,6 +97,7 @@ const HeroSection = () => (
       </p>
       <a 
         href="#showcase" // Updated CTA to point to the showcase section
+        onClick={(event) => event.preventDefault()}
         className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-gray-900 bg-amber-400 hover:bg-amber-300 transition-transform transform hover:scale-[1.02] duration-300"
       >
         <Rss className="w-5 h-5 mr-2" /> View the Full Collection
@@ -181,6 +182,7 @@ const CarpentryShowcase: React.FC = () => {
             </p>
             <a 
               href="#contact" 
+              onClick={(event) => event.preventDefault()}
               className="inline-block px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-amber-500 hover:bg-amber-600 transition duration-300"
             >
               Start a Custom Project
