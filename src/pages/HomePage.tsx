@@ -14,7 +14,7 @@ export const HomePage: React.FC<HomePageProps> = ({ projects, onSelectProject })
   <div className="p-8 md:p-12 bg-gray-900 min-h-full">
     <div className="max-w-6xl mx-auto">
       <h1 className="text-4xl font-extrabold text-teal-400 mb-4 border-b border-gray-700 pb-2">
-        My React Portfolio Sandbox
+        React Projects (vite)
       </h1>
       <p className="text-xl text-gray-400 mb-12">
         Click on any project below to view the live component.

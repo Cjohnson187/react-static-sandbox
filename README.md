@@ -1,4 +1,4 @@
-# React Portfolio Sandbox
+# React Sandbox
 
 This repository hosts a simple, single-file React application designed as a project portfolio sandbox. It demonstrates modern React functional components, `useState` hook usage, and a custom **hash-based routing** system to manage navigation between different "projects" without needing an external router library.
 
@@ -49,5 +49,3 @@ The application will start on the home page (`/`), where you can click cards to 
 * `http://localhost:3000/#counter`
 * `http://localhost:3000/#todo`
 ```eof
-
-This is the exact Markdown content for your project's documentation. What's the next task for your React project?
