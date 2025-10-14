@@ -1,6 +1,8 @@
 import { Lightbulb, ChartLine, Axe} from 'lucide-react';
 import { CounterProject } from '../projects/Counter';
 import CarpentryShowcase from '../projects/carpentry/demo1';
+import StudioShowcase from '../projects/carpentry/demo2';
+
 import bigO from '../projects/bigO/BigO';
 // --- TYPE DEFINITIONS ---
 import type { PageRoute } from '../types/PageRoute'
@@ -29,6 +31,13 @@ export const PROJECTS: Project[] = [
         description: 'First option for carpentry demo page.', 
         icon: Axe,
         component: CarpentryShowcase
+    },
+    { 
+        id: 'carpentry-demo2', 
+        name: 'carpentry-demo2', 
+        description: 'Second option for carpentry demo page.', 
+        icon: Axe,
+        component: StudioShowcase
     },
     // Add more projects here
 ];
