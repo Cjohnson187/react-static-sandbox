@@ -36,15 +36,22 @@ const ComplexityChart: React.FC = () => {
   const INNER_WIDTH = WIDTH - 2 * MARGIN;
   const INNER_HEIGHT = HEIGHT - 2 * MARGIN;
 
-  // Static data for the curves (normalized path definitions)
   const curves = [
+    // O(1): Horizontal line at the bottom
     { label: 'O(1)', color: 'text-green-400', path: `M0 ${INNER_HEIGHT} L${INNER_WIDTH} ${INNER_HEIGHT}` },
-    { label: 'O(log n)', color: 'text-lime-400', path: `M0 ${INNER_HEIGHT} c${INNER_WIDTH * 0.5},0 ${INNER_WIDTH * 0.9},-${INNER_HEIGHT * 0.1} ${INNER_WIDTH},-${INNER_HEIGHT * 0.2}` },
-    { label: 'O(n)', color: 'text-yellow-400', path: `M0 ${INNER_HEIGHT} L${INNER_WIDTH} ${MARGIN}` },
-    { label: 'O(n log n)', color: 'text-orange-400', path: `M0 ${INNER_HEIGHT} c${INNER_WIDTH * 0.3},0 ${INNER_WIDTH * 0.7},-${INNER_HEIGHT * 0.3} ${INNER_WIDTH},-${INNER_HEIGHT * 0.7}` },
-    { label: 'O(n²)', color: 'text-red-400', path: `M0 ${INNER_HEIGHT} c${INNER_WIDTH * 0.2},-${INNER_HEIGHT * 0.1} ${INNER_WIDTH * 0.5},-${INNER_HEIGHT * 0.5} ${INNER_WIDTH},0` },
-  ];
 
+    // O(log n): Starts horizontal and curves up slowly (quadratic approximation)
+    { label: 'O(log n)', color: 'text-lime-400', path: `M0 ${INNER_HEIGHT} Q ${INNER_WIDTH * 0.5} ${INNER_HEIGHT * 0.9} ${INNER_WIDTH} ${INNER_HEIGHT * 0.85}` },
+
+    // O(n): Linear diagonal line
+    { label: 'O(n)', color: 'text-yellow-400', path: `M0 ${INNER_HEIGHT} L${INNER_WIDTH} ${MARGIN}` },
+
+    // O(n log n): Steeper than O(n) but curves upward (quadratic approximation to show slight convexity)
+    { label: 'O(n log n)', color: 'text-orange-400', path: `M0 ${INNER_HEIGHT} Q ${INNER_WIDTH * 0.5} ${INNER_HEIGHT * 0.5} ${INNER_WIDTH} ${MARGIN * 0.5}` },
+    
+    // O(n²): Starts flat, then curves up steeply (quadratic approximation for polynomial growth)
+    { label: 'O(n²)', color: 'text-red-400', path: `M0 ${INNER_HEIGHT} Q ${INNER_WIDTH * 0.4} ${INNER_HEIGHT * 0.9} ${INNER_WIDTH} ${MARGIN * 0.1}` },
+  ];
   return (
     <div className="p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700">
       <h3 className="text-xl font-semibold mb-4 text-purple-300 flex items-center">
