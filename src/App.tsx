@@ -57,7 +57,7 @@ export default function App() {
       {/* Header for Navigation (Back button) */}
       <header className="absolute top-0 left-0 right-0 p-4 md:p-6 bg-gray-800 shadow-md border-b border-gray-700 flex justify-between items-center z-10">
         <h1 className="text-2xl font-bold text-teal-400">
-          {isHomePage ? 'Portfolio Home' : currentProjectName || 'Project Detail'}
+          {isHomePage ? 'Sandbox Home' : currentProjectName || 'Project Detail'}
         </h1>
         {!isHomePage && (
           <button
