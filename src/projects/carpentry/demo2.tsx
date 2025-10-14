@@ -3,8 +3,8 @@ import { ShoppingCart, Menu, X, Hammer, ClipboardList } from 'lucide-react';
 
 // --- Mock Data ---
 const MOCK_FEATURED_PIECES = [
-  { id: 1, name: "Edge Table", tag: "Signature Piece", description: "A dramatic fusion of spalted maple and steel, perfect for a modern entry. Hand-sanded to a glass-smooth finish.", price: 5900, imageUrl: "/src/assets/carpentry/veronika-fitart-bUmtYSRQpHs-unsplash.webp" },
-  { id: 2, name: "Cutting Board", tag: "Available Now", description: "Inlaid geometric patterns using salvaged teak and walnut. A true conversation starter.", price: 2100, imageUrl: "/src/assets/carpentry/sergey-kotenev-M8COBu-_Va8-unsplash.webp" },
+  { id: 1, name: "Edge Table", tag: "Signature Piece", description: "A dramatic fusion of spalted maple and steel, perfect for a modern entry. Hand-sanded to a glass-smooth finish.", price: 5900, imageUrl: "/assets/carpentry/veronika-fitart-bUmtYSRQpHs-unsplash.webp" },
+  { id: 2, name: "Cutting Board", tag: "Available Now", description: "Inlaid geometric patterns using salvaged teak and walnut. A true conversation starter.", price: 2100, imageUrl: "/assets/carpentry/sergey-kotenev-M8COBu-_Va8-unsplash.webp" },
 ];
 
 // --- Utility Components ---
@@ -78,7 +78,7 @@ const HeroSection = () => (
       className="absolute inset-0 bg-cover bg-center opacity-30" 
       // Background image suggesting a workshop or raw material
       style={{
-        backgroundImage: `url("/src/assets/carpentry/ricky-kharawala-4dVDBMAho8c-unsplash.webp")`,
+        backgroundImage: `url("/assets/carpentry/ricky-kharawala-4dVDBMAho8c-unsplash.webp")`,
       }}
     />
     
