@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ShoppingBag, Menu, X, ArrowRight, Tag } from 'lucide-react';
 
-// --- Mock Data (Updated to use 1:1 aspect ratio for all images) ---
+// --- Mock Data (Using 1:1 Aspect Ratio) ---
 const MOCK_FEATURED_PIECES = [
   { id: 1, name: "Live Edge Console", tag: "Signature Piece", description: "Dramatic spalted maple with clean black steel frame. A bold statement.", price: 5900, imageUrl: "/assets/carpentry/veronika-fitart-bUmtYSRQpHs-unsplash.webp" },
   { id: 2, name: "Inlaid Cutting Board", tag: "Available Now", description: "Salvaged teak and walnut geometric patterns. Hand-oiled finish.", price: 280, imageUrl: "/assets/carpentry/sergey-kotenev-M8COBu-_Va8-unsplash.webp" },
@@ -10,6 +10,7 @@ const MOCK_FEATURED_PIECES = [
   { id: 5, name: "Reclaimed Wood Credenza", tag: "Best Seller", description: "A floating credenza built from 100-year-old reclaimed barnwood.", price: 4200, imageUrl: "/assets/carpentry/urban-vintage-ynaMTwl3R1A-unsplash.webp" },
   { id: 6, name: "Modern Desk", tag: "Available Now", description: "Clean, floating desktop with integrated cable management. Maple wood.", price: 3100, imageUrl: "/assets/carpentry/thuan-tran-Wmo8hpd9XhI-unsplash.webp" },
 ];
+
 
 // --- Utility Components ---
 
@@ -28,7 +29,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
-            <a href="#carpentry-demo3" onClick={(event) => event.preventDefault()} className="text-3xl font-serif font-light text-gray-800 tracking-wider">
+            <a href="#carpentry-demo3" className="text-3xl font-serif font-light text-gray-800 tracking-wider">
               <span className="font-semibold text-amber-700">The</span> Grain Collective
             </a>
           </div>
@@ -36,7 +37,7 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navLinks.map(link => (
-              <a key={link.name} href={link.href} onClick={(event) => event.preventDefault()} className="text-lg text-gray-600 hover:text-amber-700 transition duration-150 font-medium tracking-wide">
+              <a key={link.name}  onClick={(event) => event.preventDefault()} href={link.href} className="text-lg text-gray-600 hover:text-amber-700 transition duration-150 font-medium tracking-wide">
                 {link.name}
               </a>
             ))}
@@ -63,8 +64,8 @@ const Header = () => {
         <div className="md:hidden bg-white border-t border-gray-100">
           <div className="px-2 pt-2 pb-3 space-y-1 flex flex-col items-start">
             {navLinks.map(link => (
-                // <a key={link.name} href={link.href} onClick={(event) => event.preventDefault()} className="block w-full p-2 text-base font-medium text-gray-700 hover:bg-amber-50 rounded-md" onClick={() => setIsOpen(false)}>
-              <a key={link.name} href={link.href} onClick={(event) => event.preventDefault()} className="block w-full p-2 text-base font-medium text-gray-700 hover:bg-amber-50 rounded-md" >
+              // <a key={link.name} href={link.href} className="block w-full p-2 text-base font-medium text-gray-700 hover:bg-amber-50 rounded-md" onClick={() => setIsOpen(false)}></a>
+              <a key={link.name} onClick={(event) => event.preventDefault()} href={link.href} className="block w-full p-2 text-base font-medium text-gray-700 hover:bg-amber-50 rounded-md" >
                 {link.name}
               </a>
             ))}
@@ -103,7 +104,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ piece }) => {
   return (
-    <div className="group bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border border-gray-100">
+    <div className="group bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border border-gray-100 flex flex-col">
       
       {/* Image Container with 1:1 Aspect Ratio (w-1, h-1) */}
       <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden bg-gray-100">
@@ -112,30 +113,46 @@ const ProductCard: React.FC<ProductCardProps> = ({ piece }) => {
           alt={piece.name} 
           className="w-full h-full object-cover group-hover:opacity-85 transition duration-500" 
           loading="lazy"
+          // Adding a fall-back for image errors, though placeholders are used
+          onError={(e) => {
+            e.currentTarget.onerror = null; 
+            e.currentTarget.src = "https://placehold.co/600x600/EAEAEA/808080?text=Image+Unavailable";
+          }}
         />
       </div>
       
-      {/* Text Content */}
-      <div className="p-6">
-        <div className="flex justify-between items-start mb-2">
+      {/* Text Content: 
+        1. Added 'relative' to make absolute positioning of the action bar work.
+        2. Added 'h-[130px]' to fix the content area height (sufficient for title + price + 2 lines description).
+        3. Added 'pb-12' to reserve space at the bottom for the absolutely positioned action bar.
+      */}
+      <div className="relative px-6 py-4 h-[130px] pb-12"> 
+        
+        {/* Top section with Title and Price */}
+        <div className="flex justify-between items-start mb-1">
             <h3 className="text-xl font-semibold text-gray-900 leading-snug hover:text-amber-700 transition cursor-pointer">
               {piece.name}
             </h3>
             <span className="text-2xl font-bold text-amber-700">${piece.price.toLocaleString('en-US')}</span>
         </div>
         
-        {/* Fixed height (h-10) ensures two lines of description for uniformity */}
-        <div className="h-10 text-sm text-gray-500 mb-3 overflow-hidden line-clamp-2">
+        {/* Description: Removed min-h-10. Now relies on the parent's fixed height to enforce uniformity. */}
+        <div className="text-sm text-gray-500 overflow-hidden line-clamp-2">
             {piece.description}
         </div>
 
-        <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-          <span className="text-xs font-medium uppercase text-gray-500 flex items-center">
-            <Tag className="w-3 h-3 mr-1 text-amber-600" /> {piece.tag}
-          </span>
-          <button className="flex items-center text-sm font-medium text-amber-700 hover:text-gray-900 transition">
-            View Details 
-          </button>
+        {/* Action bar: ABSOLUTELY POSITIONED 
+          - Ensures perfect bottom alignment across all cards.
+        */}
+        <div className="absolute bottom-0 left-0 right-0 px-6 pt-2 border-t border-gray-100 bg-white">
+          <div className="flex items-center justify-between pb-4">
+            <span className="text-xs font-medium uppercase text-gray-500 flex items-center">
+              <Tag className="w-3 h-3 mr-1 text-amber-600" /> {piece.tag}
+            </span>
+            <button className="flex items-center text-sm font-medium text-amber-700 hover:text-gray-900 transition">
+              View Details 
+            </button>
+          </div>
         </div>
       </div>
       
