@@ -2,6 +2,7 @@ import { Lightbulb, ChartLine, Axe} from 'lucide-react';
 import { CounterProject } from '../projects/Counter';
 import CarpentryShowcase from '../projects/carpentry/demo1';
 import StudioShowcase from '../projects/carpentry/demo2';
+import GalleryShowcase from '../projects/carpentry/demo3';
 
 import bigO from '../projects/bigO/BigO';
 // --- TYPE DEFINITIONS ---
@@ -28,16 +29,23 @@ export const PROJECTS: Project[] = [
     { 
         id: 'carpentry-demo1', 
         name: 'carpentry-demo1', 
-        description: 'First option for carpentry demo page.', 
+        description: 'First option for carpentry demo page, dark theme.', 
         icon: Axe,
         component: CarpentryShowcase
     },
     { 
         id: 'carpentry-demo2', 
         name: 'carpentry-demo2', 
-        description: 'Second option for carpentry demo page.', 
+        description: 'Second option for carpentry demo page, dark theme.', 
         icon: Axe,
         component: StudioShowcase
+    },
+    { 
+        id: 'carpentry-demo3', 
+        name: 'carpentry-demo3', 
+        description: 'Third option for carpentry page, light theme.', 
+        icon: Axe,
+        component: GalleryShowcase
     },
     // Add more projects here
 ];
