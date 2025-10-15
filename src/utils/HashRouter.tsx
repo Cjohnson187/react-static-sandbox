@@ -1,8 +1,11 @@
-import { Lightbulb, ChartLine, Axe} from 'lucide-react';
+import { Lightbulb, ChartLine, Axe, HeartPlus} from 'lucide-react';
 import { CounterProject } from '../projects/Counter';
 import CarpentryShowcase from '../projects/carpentry/demo1';
 import StudioShowcase from '../projects/carpentry/demo2';
 import GalleryShowcase from '../projects/carpentry/demo3';
+
+import OnwardCounseling from '../projects/onwardCounceling/OnwardCounseling';
+import OnwardCounseling2 from '../projects/onwardCounceling/OnwardCounseling2';
 
 import bigO from '../projects/bigO/BigO';
 // --- TYPE DEFINITIONS ---
@@ -46,6 +49,20 @@ export const PROJECTS: Project[] = [
         description: 'Third option for carpentry page, light theme.', 
         icon: Axe,
         component: GalleryShowcase
+    },
+    { 
+        id: 'onward-counseling', 
+        name: 'OnwardCounseling', 
+        description: '1st demo page for onward counseling website redesign.', 
+        icon: HeartPlus,
+        component: OnwardCounseling
+    },
+    { 
+        id: 'onward-counseling-2', 
+        name: 'OnwardCounseling2', 
+        description: '1st demo page for onward counseling website redesign.', 
+        icon: HeartPlus,
+        component: OnwardCounseling2
     },
     // Add more projects here
 ];
