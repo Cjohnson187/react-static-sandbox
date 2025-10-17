@@ -8,6 +8,8 @@ import OnwardCounseling from '../projects/onwardCounceling/OnwardCounseling';
 import OnwardCounseling2 from '../projects/onwardCounceling/OnwardCounseling2';
 import OnwardCounseling3 from '../projects/onwardCounceling/OnwardCounseling3';
 
+import TypeIt from '../projects/typingIt/TypeIt';
+
 import bigO from '../projects/bigO/BigO';
 // --- TYPE DEFINITIONS ---
 import type { PageRoute } from '../types/PageRoute'
@@ -71,6 +73,13 @@ export const PROJECTS: Project[] = [
         description: '3rd demo page for onward counseling website redesign.', 
         icon: HeartPlus,
         component: OnwardCounseling3
+    },
+    { 
+        id: 'type-it', 
+        name: 'TypeIt', 
+        description: 'App to practice typing what im reading from a book.', 
+        icon: HeartPlus,
+        component: TypeIt
     },
     // Add more projects here
 ];

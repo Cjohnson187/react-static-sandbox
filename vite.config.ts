@@ -15,4 +15,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  assetsInclude: [
+    // typeit assets
+    // This might be required to ensure the worker file is copied
+    '**/pdf.worker.js', 
+  ],
 })
